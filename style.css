@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    backgorund: #111;
+    padding: 10px;
+}
+
+h1 {
+    color: white;
+}
+
+.gs {
+    color: red;
+}
+
+nav a {
+    color: white;
+    margin-left: 10px;
+    text-decoration: none;
+}
