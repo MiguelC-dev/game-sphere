@@ -29,7 +29,7 @@ main {
 
 /* centraliza tudo */
 .principal {
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
 }
 
@@ -39,6 +39,7 @@ main {
     color: black;
     border-radius: 10px;
     overflow: hidden;
+    padding: 20px;
 }
 .noticia-principal img {
     width: 100%;
@@ -54,7 +55,7 @@ main {
     background: white;
     color: black;
     margin: 20px auto;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     max-width: 400px; /* controla o tamanho */
 }
@@ -63,4 +64,45 @@ main {
     width: 100%;
     border-radius: 8px;
 }
+/* FUNDO ESCURO */
+body {
+    background: #0f0f0f;
+    color: white;
+}
+
+/* ESPAÇO ENTRE NOTÍCIAS */
+.noticia-principal,
+.noticia-menor {
+    margin-bottom: 30px;
+}
+
+/* SOMBRA */
+.noticia-principal,
+.noticia-menor {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* EFEITO HOVER */
+.noticia-principal:hover,
+.noticia-menor:hover {
+   transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+/* BOTÃO */
+.botao {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background-color: #cc0000;
+}
+
 
