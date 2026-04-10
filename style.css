@@ -1,4 +1,4 @@
-body {
+header {
     margin: 0;
     font-family: Arial;
 }
@@ -6,6 +6,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: #111;
     padding: 10px;
 }
@@ -14,17 +15,40 @@ h1 {
     color: white;
 }
 
+
+
 .gs {
     color: red;
+}
+
+.nav-btn {
+    background-color: #f90e0e; 
+    color: white;
+    padding: 10px 20px;       
+    margin-left: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    background-color: red;
 }
 
 nav a {
     color: white;
     margin-left: 10px;
-    text-decoration: none;
+    text-decoration: wavy;
 }
 main {
     margin-top: 30px;
+}
+
+.titulo-secao {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
 }
 
 /* centraliza tudo */
@@ -66,7 +90,7 @@ main {
 }
 /* FUNDO ESCURO */
 body {
-    background: #0f0f0f;
+    background: rgb(65, 65, 65);
     color: white;
 }
 
@@ -105,4 +129,39 @@ body {
     background-color: #cc0000;
 }
 
+/* CONTAINER DAS NOTÍCIAS MENORES (lado a lado) */
+.noticias-menores {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* espaço entre elas */
+    margin-top: 20px;
+}
+
+/* CAIXA DAS NOTÍCIAS MENORES */
+.noticia-menor {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* tamanho fixo */
+}
+
+/* IMAGEM */
+.noticia-menor img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* texto das notícias */
+.noticia-principal p,
+.noticia-menor p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.noticia-principal h2,
+.noticia-menor h3 {
+    font-family: 'Orbitron', sans-serif;
+}
 
