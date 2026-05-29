@@ -1,0 +1,201 @@
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
+.principal {
+    width: 95%;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+/* =========================
+   TÍTULOS DAS SEÇÕES
+========================= */
+
+.titulo-secao {
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+
+    max-width: 980px;
+
+    margin: 0 auto 20px auto;
+}
+
+/* =========================
+   NOTÍCIA PRINCIPAL
+========================= */
+
+.noticia-principal {
+    max-width: 1050px;
+
+    margin: 0 auto 40px auto;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+
+    padding: 20px;
+}
+
+/* IMAGEM */
+.noticia-principal img {
+    width: 100%;
+
+    height: 450px;
+
+    object-fit: contain;
+
+    background: #000000;
+
+    display: block;
+}
+
+/* PARTE DE BAIXO */
+.conteudo-principal {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px;
+
+    gap: 20px;
+
+    background: white;
+
+    color: black;
+}
+
+/* TEXTO */
+.conteudo-principal p {
+    margin: 0;
+
+    font-size: 18px;
+
+    font-family: 'Roboto', sans-serif;
+
+    max-width: 900px;
+}
+
+/* BOTÃO */
+.conteudo-principal .botao {
+    white-space: nowrap;
+}
+
+/* =========================
+   NOTÍCIAS MENORES
+========================= */
+
+.noticias-menores {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+/* CARD */
+.noticia-menor {
+    width: 500px;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+    transition: 0.3s;
+
+    padding: 10px;
+}
+
+/* HOVER */
+.noticia-menor:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGEM */
+.noticia-menor img {
+    width: 100%;
+
+    height: 240px;
+
+    object-fit: contain;
+
+    background: #000;
+
+    border-radius: 10px;
+
+    display: block;
+}
+
+/* TEXTO */
+.noticia-menor h3,
+.noticia-menor p,
+.noticia-menor strong,
+.noticia-menor .botao {
+    margin-left: 15px;
+
+    margin-right: 15px;
+}
+
+.noticia-menor p {
+    line-height: 1.5;
+}
+
+/* BOTÃO */
+.noticia-menor .botao {
+    display: inline-block;
+
+    margin-bottom: 20px;
+}
+
+/* =========================
+   EFEITO HOVER NAS NOTÍCIAS
+========================= */
+
+.noticia-principal:hover,
+.noticia-menor:hover {
+    transform: translateY(-5px);
+
+    transition: 0.3s;
+}
+
+/* =========================
+   TEXTOS DAS NOTÍCIAS
+========================= */
+
+.noticia-principal p,
+.noticia-menor p {
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+/* Títulos das notícias */
+.noticia-principal h2,
+.noticia-menor h3 {
+    font-family: 'Orbitron', sans-serif;
+}

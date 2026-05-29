@@ -4,16 +4,17 @@
 
 body {
     margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    #000000 0%,
-    #111111 75%,
-    #1a0000 90%,
-    #2b0000 100%
-  );
+    min-height: 100vh;
+
+    background: linear-gradient(
+        to bottom,
+        #000000 0%,
+        #111111 75%,
+        #1a0000 90%,
+        #2b0000 100%
+    );
+
     color: white;
-    margin: 0;
     font-family: Arial, sans-serif;
 }
 
@@ -25,15 +26,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     background: #0f0f0f;
+
     padding: 10px;
-     border-bottom: 2px solid red;
+
+    border-bottom: 2px solid red;
 }
 
 /* Título principal */
 h1 {
     color: white;
+
     font-family: 'Orbitron', sans-serif;
+
     font-size: 32px;
 }
 
@@ -48,22 +54,34 @@ h1 {
 
 nav a {
     color: white;
+
     margin-left: 10px;
+
     text-decoration: none;
 }
 
 /* Botões do menu */
 .nav-btn {
     background-color: #f90e0e;
+
     color: white;
+
     padding: 12px 22px;
+
     margin-left: 12px;
+
     border-radius: 14px;
+
     text-decoration: none;
+
     font-weight: bold;
+
     display: inline-block;
+
     font-family: 'Orbitron', sans-serif;
+
     font-size: 0.95rem;
+
     letter-spacing: 0.5px;
 }
 
@@ -80,192 +98,27 @@ main {
     margin-top: 30px;
 }
 
-/* banner pricipal */
+/* Banner principal */
 .hero-banner {
     max-width: 700px;
+
     margin: 20px auto 0;
+
     padding: 0 20px;
+
     text-align: center;
 }
 
 .hero-text {
     font-family: 'Orbitron', sans-serif;
+
     font-size: 1.2rem;
+
     line-height: 1.7;
+
     color: #f5f5f5;
+
     margin: 0;
-}
-
-/* Centraliza o conteúdo */
-.principal {
-    width: 95%;
-    max-width: 1400px;
-    margin: auto;
-}
-
-/* =========================
-   TÍTULOS DAS SEÇÕES
-========================= */
-
-.titulo-secao {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 32px;
-    letter-spacing: 1px;
-    max-width: 980px;
-    margin: 0 auto 20px auto;
-}
-
-/* =========================
-   NOTÍCIA PRINCIPAL
-========================= */
-
-.noticia-principal {
-    max-width: 1050px;
-
-    margin: 0 auto 40px auto;
-
-    background: white;
-
-    color: black;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-
-    padding: 20px;
-}
-
-/* IMAGEM */
-.noticia-principal img {
-    width: 100%;
-
-    height: 450px;
-
-    object-fit: contain;
-
-    background: #000000;
-
-    display: block;
-}
-
-/* PARTE DE BAIXO */
-.conteudo-principal {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 20px;
-
-    gap: 20px;
-
-    background: white;
-
-    color: black;
-}
-
-/* TEXTO */
-.conteudo-principal p {
-    margin: 0;
-
-    font-size: 18px;
-
-    font-family: 'Roboto', sans-serif;
-
-    max-width: 900px;
-}
-
-/* BOTÃO */
-.conteudo-principal .botao {
-    white-space: nowrap;
-}
-
-/* =========================
-   NOTÍCIAS MENORES
-========================= */
-
-.noticias-menores {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 50px;
-
-    flex-wrap: wrap;
-
-    margin-top: 30px;
-}
-
-/* CARD */
-.noticia-menor {
-    width: 500px;
-
-    background: white;
-
-    color: black;
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-
-    transition: 0.3s;
-
-    padding: 10px;
-}
-
-/* HOVER */
-.noticia-menor:hover {
-    transform: translateY(-5px);
-}
-
-/* IMAGEM */
-.noticia-menor img {
-    width: 100%;
-
-    height: 240px;
-
-    object-fit: contain;
-
-    background: #000;
-
-    border-radius: 10px;
-
-    display: block;
-}
-
-/* TEXTO */
-.noticia-menor h3,
-.noticia-menor p,
-.noticia-menor strong,
-.noticia-menor .botao {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.noticia-menor p {
-    line-height: 1.5;
-}
-
-/* BOTÃO */
-.noticia-menor .botao {
-    display: inline-block;
-
-    margin-bottom: 20px;
-}
-
-/* =========================
-   EFEITO HOVER NAS NOTÍCIAS
-========================= */
-
-.noticia-principal:hover,
-.noticia-menor:hover {
-    transform: translateY(-5px);
-    transition: 0.3s;
 }
 
 /* =========================
@@ -274,12 +127,19 @@ main {
 
 .botao {
     display: inline-block;
+
     margin-top: 10px;
+
     padding: 10px 15px;
+
     background-color: red;
+
     color: white;
+
     text-decoration: none;
+
     border-radius: 5px;
+
     font-weight: bold;
 }
 
@@ -289,32 +149,21 @@ main {
 }
 
 /* =========================
-   TEXTOS DAS NOTÍCIAS
-========================= */
-
-.noticia-principal p,
-.noticia-menor p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Títulos das notícias */
-.noticia-principal h2,
-.noticia-menor h3 {
-    font-family: 'Orbitron', sans-serif;
-}
-
-/* =========================
-          FOOTER
+   FOOTER
 ========================= */
 
 footer {
     display: flex;
+
     justify-content: center;
+
     font-family: 'Orbitron', sans-serif;
+
     background-color: #0f0f0f;
+
     border-top: 2px solid red;
+
     padding: 20px;
+
     margin-top: 40px;
 }
