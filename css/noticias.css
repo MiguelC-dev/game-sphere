@@ -78,6 +78,17 @@
     color: black;
 }
 
+/* DATA DA NOTÍCIA */
+.data-noticia {
+    font-size: 0.95rem;
+
+    color: #870718;
+
+    margin: 5px 0 10px;
+    
+    font-family: Roboto, Arial, sans-serif;
+}
+
 /* TEXTO */
 .conteudo-principal p {
     margin: 0;
