@@ -129,3 +129,41 @@
 .contras ul {
     padding-left: 25px;
 }
+
+/* TRAILER */
+.trailer {
+    margin: 25px 0;
+}
+
+.trailer iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* =========================
+       INFORMAÇÕES REVIEW
+========================= */
+
+.review-info {
+    background: #f3f3f3;
+
+    color: #222;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin: 25px 0;
+
+    line-height: 1.8;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.review-info strong {
+    color: #cc0000;
+
+    font-family: 'Orbitron', sans-serif;
+}
