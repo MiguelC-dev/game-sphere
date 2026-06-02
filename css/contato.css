@@ -1,0 +1,59 @@
+
+/* =========================
+     TÍTULO E SUBTÍTULO
+========================= */
+
+.logo {
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.game-sphere {
+    color: #ff4500;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.news {
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    margin-left: 10px;
+}
+
+.sublogo {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* =========================
+          CONTATO
+========================= */
+
+.contato {
+    max-width: 1500px;
+    margin-top: 60px;
+    margin: 40px auto;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgb(5, 5, 5);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+
+}
