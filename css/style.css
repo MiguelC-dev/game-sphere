@@ -167,3 +167,85 @@ footer {
 
     margin-top: 40px;
 }
+
+/* =========================
+       RESPONSIVIDADE
+========================= */
+
+/* =========================
+     NOTEBOOKS MENORES
+========================= */
+
+@media (max-width: 1366px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .nav-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    .hero-banner {
+        max-width: 600px;
+    }
+}
+
+/* =========================
+          CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    /* HEADER */
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin: 0;
+    }
+
+    /* MENU */
+
+   nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .nav-btn {
+        margin: 0;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }   
+
+    /* BANNER */
+
+    .hero-banner {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+        text-align: center;
+        padding: 15px;
+    }
+
+    footer p {
+        margin: 0;
+    }
+}

@@ -210,3 +210,111 @@
 .noticia-menor h3 {
     font-family: 'Orbitron', sans-serif;
 }
+
+/* =========================
+       RESPONSIVIDADE
+========================= */
+
+/* =========================
+     NOTEBOOKS MENORES
+========================= */
+
+@media (max-width: 1366px) {
+
+    .titulo-secao {
+        text-align: center;
+    }
+
+    .noticia-principal {
+        width: 90%;
+    }
+
+    .noticia-principal img {
+        height: 350px;
+    }
+
+    .noticia-menor {
+        width: 500px;
+    }
+
+    .conteudo-principal p {
+        font-size: 16px;
+    }
+}
+
+/* =========================
+          CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    .principal {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .titulo-secao {
+        text-align: center;
+        font-size: 26px;
+    }
+
+    /* NOTÍCIA PRINCIPAL */
+
+    .noticia-principal {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .noticia-principal img {
+        height: 220px;
+    }
+
+    .conteudo-principal {
+
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .conteudo-principal p {
+
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .conteudo-principal .botao {
+
+        width: 100%;
+        text-align: center;
+    }
+
+    /* NOTÍCIAS MENORES */
+
+    .noticias-menores {
+
+        gap: 20px;
+    }
+
+    .noticia-menor {
+
+        width: 95%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .noticia-menor img {
+
+        height: 180px;
+    }
+
+    .noticia-menor h3 {
+
+        font-size: 1.2rem;
+    }
+
+    .noticia-menor p {
+
+        font-size: 14px;
+    }
+}

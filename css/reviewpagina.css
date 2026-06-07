@@ -107,3 +107,81 @@
 
     font-family: 'Orbitron', sans-serif;
 }
+
+/* =========================
+       RESPONSIVIDADE
+========================= */
+
+/* =========================
+     NOTEBOOKS MENORES
+========================= */
+
+@media (max-width: 1366px) {
+
+    .review-principal {
+        width: 90%;
+    }
+
+    .review-principal img {
+        height: 350px;
+    }
+
+    .trailer iframe {
+        height: 400px;
+    }
+}
+
+/* =========================
+          CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    .review-principal {
+        width: 95%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .review-principal img {
+
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+    }
+
+    .review-principal h2 {
+
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .review-principal p {
+
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .review-info {
+
+        padding: 15px;
+        line-height: 1.6;
+    }
+
+    .pros ul,
+    .contras ul {
+
+        padding-left: 20px;
+    }
+
+    .trailer iframe {
+
+        height: 220px;
+    }
+
+    .nota-review {
+
+        font-size: 18px;
+        margin-left: 0;
+    }
+}

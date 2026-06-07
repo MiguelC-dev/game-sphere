@@ -124,3 +124,79 @@
 
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
+
+/* =========================
+       RESPONSIVIDADE
+========================= */
+
+/* =========================
+     NOTEBOOKS MENORES
+========================= */
+
+@media (max-width: 1366px) {
+
+    .título-review {
+        margin-left: 50px;
+    }
+
+    .review-card {
+        width: 90%;
+    }
+
+    .review-conteudo h3 {
+        font-size: 2rem;
+    }
+
+    .review-card img {
+        height: 400px;
+    }
+}
+
+/* =========================
+          CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    .título-review {
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .review-card {
+
+        flex-direction: column;
+        width: 95%;
+        min-height: auto;
+    }
+
+    .review-card img {
+
+        width: 100%;
+        height: 250px;
+        padding: 10px;
+    }
+
+    .review-conteudo {
+
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .review-conteudo h3 {
+
+        font-size: 1.8rem;
+    }
+
+    .nota-review {
+
+        font-size: 24px;
+    }
+
+    .review-conteudo p {
+
+        line-height: 1.6;
+    }
+}

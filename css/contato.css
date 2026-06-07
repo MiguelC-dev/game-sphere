@@ -33,7 +33,7 @@
 ========================= */
 
 .contato {
-    max-width: 1500px;
+    max-width: 1300px;
     margin-top: 60px;
     margin: 40px auto;
     font-family: Roboto, Arial, sans-serif;
@@ -57,3 +57,81 @@
     font-size: 16px;
 
 }
+
+/* =========================
+       RESPONSIVIDADE
+========================= */
+
+/* =========================
+     NOTEBOOKS MENORES
+========================= */
+
+@media (max-width: 1366px) {
+
+    .contato {
+        width: 80%;
+    }
+
+    .logo {
+        font-size: 40px;
+    }
+
+    .sublogo {
+        font-size: 18px;
+    }
+}
+
+/* =========================
+          CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    /* LOGO */
+
+    .logo {
+
+        font-size: 32px;
+        flex-wrap: wrap;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .news {
+
+        margin-left: 5px;
+    }
+
+    .sublogo {
+
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    /* FORMULÁRIO */
+
+    .contato {
+
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .form-contato {
+
+        padding: 20px;
+    }
+
+    .form-contato input,
+    .form-contato textarea {
+
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .form-contato button {
+
+        width: 100%;
+    }
+}
+
