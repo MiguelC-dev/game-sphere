@@ -121,6 +121,28 @@
     margin-top: 30px;
 }
 
+/* Cabeçalho da página de notícias — ocupa toda a linha acima dos cards */
+.noticias-cabecalho {
+    flex-basis: 100%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pagina-titulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    margin: 0;
+    color: #fff;
+}
+
+.pagina-subtitulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    margin: 5px 0 0 0;
+    color: #fff;
+}
+
 /* CARD */
 .noticia-menor {
     width: 500px;

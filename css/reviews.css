@@ -3,7 +3,24 @@
 ========================= */
 
 .título-review {
-    margin-left: 200px;
+    margin-left: 0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Título e subtítulo da página */
+.pagina-titulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    margin: 0;
+    color: #fff;
+}
+
+.pagina-subtitulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    margin: 6px 0 0 0;
+    color: #fff;
 }
 
 /* =========================
@@ -73,7 +90,7 @@
 ========================= */
 
 .nota-review {
-    color: gold;
+    color: #000000;
     font-size: 30px;
     font-weight: bold;
 
