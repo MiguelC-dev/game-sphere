@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #080808, #151515, #090909);
+    color: #ffffff;
+}
+
+/* Área principal */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Caixa de login */
+
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 45px 40px;
+    background: #111111;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.12);
+}
+
+/* Logo */
+
+.logo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.logo span {
+    color: #e50914;
+}
+
+/* Subtítulo */
+
+.subtitle {
+    text-align: center;
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 35px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Título */
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Campos */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #dddddd;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input-group input::placeholder {
+    color: #666666;
+}
+
+.input-group input:focus {
+    border-color: #e50914;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.15);
+}
+
+/* Botão */
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 6px;
+    background: #e50914;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+    background: #ff1a25;
+    transform: translateY(-1px);
+}
+
+/* Voltar para o site */
+
+.back-link {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+    color: #999999;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.back-link:hover {
+    color: #e50914;
+}
+
+/* Responsividade */
+
+@media (max-width: 480px) {
+
+    .login-box {
+        padding: 35px 25px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+}
