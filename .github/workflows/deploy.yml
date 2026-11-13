@@ -1,4 +1,5 @@
 
+
 name: Publicar GS News na ByetHost
 
 on:
@@ -14,7 +15,7 @@ jobs:
       - name: Baixar arquivos do GitHub
         uses: actions/checkout@v4
 
-      - name: Simular publicação na ByetHost
+      - name: Publicar na ByetHost
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -30,3 +31,4 @@ jobs:
             **/.git*/**
             **/.github/**
             README.md
+            paineladm/conexao.php
