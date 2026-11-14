@@ -1,18 +1,23 @@
+
+<?php
+session_start();
+
+if (!isset($_SESSION["admin_id"])) {
+    header("Location: admGS.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>GS News - Dashboard</title>
-
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
-
 <body>
-
     <aside class="sidebar">
-
         <div class="logo">
             <span>GS</span> NEWS
         </div>
@@ -25,23 +30,22 @@
             <a href="#">⭐ Reviews</a>
         </nav>
 
-        <a href="/index.html" class="back-site">
+        <a href="../index.html" class="back-site">
             ← Voltar ao site
+        </a>
+        <a href="logout.php" class="back-site">
+                Sair do painel
         </a>
 
     </aside>
 
-
     <main class="content">
-
         <header>
             <h1>Painel Administrativo</h1>
-            <p>Bem-vindo ao painel de gerenciamento do GS News.</p>
+            <p>Bem-vindo, <?php echo htmlspecialchars($_SESSION["admin_nome"]); ?>!</p>
         </header>
 
-
         <section class="cards">
-
             <div class="card">
                 <div class="card-icon">📰</div>
                 <div>
@@ -65,19 +69,11 @@
                     <p>Reviews cadastradas</p>
                 </div>
             </div>
-
         </section>
 
-
         <section class="welcome">
-
             <h2>Gerenciamento do GS News</h2>
-
-            <p>
-                Utilize o menu lateral para acessar as áreas
-                administrativas do site.
-            </p>
-
+            <p>Utilize o menu lateral para acessar as áreas administrativas do site.</p>
         </section>
     </main>
 </body>
