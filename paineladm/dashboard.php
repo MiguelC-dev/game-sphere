@@ -25,7 +25,7 @@ if (!isset($_SESSION["admin_id"])) {
         <p class="admin-text">PAINEL ADMINISTRATIVO</p>
 
         <nav>
-            <a href="#" class="active">📰 Notícias</a>
+            <a href="noticias.php">📰 Notícias</a>
             <a href="#">💬 Contato</a>
             <a href="#">⭐ Reviews</a>
         </nav>
