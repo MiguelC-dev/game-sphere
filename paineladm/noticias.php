@@ -70,6 +70,14 @@ $noticias = $consulta->fetchAll(PDO::FETCH_ASSOC);
                         <a href="editar_noticia.php?id=<?php echo $noticia["id"]; ?>">
                             Editar
                         </a>
+
+                        <form method="POST" action="excluir_noticia.php"
+                            onsubmit="return confirm('Tem certeza que deseja excluir esta notícia?');">
+                                <input type="hidden" name="id"
+                                value="<?php echo $noticia["id"]; ?>">
+                                 <button type="submit">Excluir</button>
+                        </form>
+
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
