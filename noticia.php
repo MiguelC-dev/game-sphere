@@ -48,7 +48,7 @@ if (!$noticia) {
 
         <nav>
             <a href="index.php" class="nav-btn">Inicio</a>
-            <a href="noticias/noticias.html" class="nav-btn">Notícias</a>
+            <a href="noticias/noticias.php" class="nav-btn">Notícias</a>
             <a href="reviews/reviews.html" class="nav-btn">Reviews</a>
             <a href="contato/contato.html" class="nav-btn">Contato</a>
         </nav>
