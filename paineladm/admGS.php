@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button type="submit">Entrar</button>
             </form>
 
-            <a href="../index.html" class="back-link">
+            <a href="../index.php" class="back-link">
                 ← Voltar para o site
             </a>
         </section>

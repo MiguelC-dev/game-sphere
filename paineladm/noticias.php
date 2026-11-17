@@ -35,7 +35,7 @@ $noticias = $consulta->fetchAll(PDO::FETCH_ASSOC);
             <a href="#">⭐ Reviews</a>
         </nav>
 
-        <a href="../index.html" class="back-site">← Voltar ao site</a>
+        <a href="../index.php" class="back-site">← Voltar ao site</a>
         <a href="logout.php" class="back-site">Sair do painel</a>
     </aside>
 

@@ -30,7 +30,7 @@ if (!isset($_SESSION["admin_id"])) {
             <a href="#">⭐ Reviews</a>
         </nav>
 
-        <a href="../index.html" class="back-site">
+        <a href="../index.php" class="back-site">
             ← Voltar ao site
         </a>
         <a href="logout.php" class="back-site">
