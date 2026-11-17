@@ -11,14 +11,13 @@ if (!isset($_SESSION["admin_id"])) {
 $erro = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $titulo = trim($_POST["titulo"]);
-    $data = $_POST["data_publicacao"];
-    $imagem = trim($_POST["imagem"]);
-    $resumo = trim($_POST["resumo"]);
-    $conteudo = trim($_POST["conteudo"]);
-    $secao = $_POST["secao"];
+    $titulo = trim($_POST["titulo"] ?? "");
+    $data = $_POST["data_publicacao"] ?? "";
+    $resumo = trim($_POST["resumo"] ?? "");
+    $conteudo = trim($_POST["conteudo"] ?? "");
+    $secao = $_POST["secao"] ?? "";
     $destaque = isset($_POST["destaque"]) ? 1 : 0;
-    $status = $_POST["status"];
+    $status = $_POST["status"] ?? "";
 
     if ($secao === "noticias") {
         $destaque = 0;
@@ -27,34 +26,74 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (
         $titulo === "" ||
         $data === "" ||
-        $imagem === "" ||
         $resumo === "" ||
         $conteudo === ""
     ) {
         $erro = "Preencha todos os campos.";
+    } elseif (!in_array($secao, ["inicio", "noticias"], true)) {
+        $erro = "Seção inválida.";
+    } elseif (!in_array($status, ["publicada", "rascunho"], true)) {
+        $erro = "Status inválido.";
+    } elseif (
+        !isset($_FILES["imagem"]) ||
+        $_FILES["imagem"]["error"] !== UPLOAD_ERR_OK
+    ) {
+        $erro = "Selecione uma imagem válida.";
+    } elseif ($_FILES["imagem"]["size"] > 5 * 1024 * 1024) {
+        $erro = "A imagem deve ter no máximo 5 MB.";
     } else {
-        try {
-            $sql = "INSERT INTO noticias
-            (titulo, data_publicacao, imagem, resumo, conteudo, secao, destaque, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $tiposPermitidos = [
+            "image/jpeg" => "jpg",
+            "image/png" => "png",
+            "image/webp" => "webp"
+        ];
 
-            $consulta = $conexao->prepare($sql);
-            $consulta->execute([
-                $titulo,
-                $data,
-                $imagem,
-                $resumo,
-                $conteudo,
-                $secao,
-                $destaque,
-                $status
-            ]);
+        $arquivoTemporario = $_FILES["imagem"]["tmp_name"];
+        $mime = mime_content_type($arquivoTemporario);
 
-            header("Location: noticias.php");
-            exit;
+        if (!isset($tiposPermitidos[$mime])) {
+            $erro = "Formato inválido. Use JPG, PNG ou WEBP.";
+        } else {
+            $extensao = $tiposPermitidos[$mime];
+            $nomeArquivo = bin2hex(random_bytes(16)) . "." . $extensao;
 
-        } catch (PDOException $e) {
-            $erro = "Não foi possível cadastrar a notícia.";
+            $pastaUploads = dirname(__DIR__) . "/uploads/noticias/";
+            $caminhoImagem = "uploads/noticias/" . $nomeArquivo;
+            $destino = $pastaUploads . $nomeArquivo;
+
+            if (!is_dir($pastaUploads)) {
+                $erro = "A pasta de imagens não foi encontrada.";
+            } elseif (!move_uploaded_file($arquivoTemporario, $destino)) {
+                $erro = "Não foi possível enviar a imagem.";
+            } else {
+                try {
+                    $sql = "INSERT INTO noticias
+                    (titulo, data_publicacao, imagem, resumo, conteudo, secao, destaque, status)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+                    $consulta = $conexao->prepare($sql);
+                    $consulta->execute([
+                        $titulo,
+                        $data,
+                        $caminhoImagem,
+                        $resumo,
+                        $conteudo,
+                        $secao,
+                        $destaque,
+                        $status
+                    ]);
+
+                    header("Location: noticias.php");
+                    exit;
+
+                } catch (PDOException $e) {
+                    if (file_exists($destino)) {
+                        unlink($destino);
+                    }
+
+                    $erro = "Não foi possível cadastrar a notícia.";
+                }
+            }
         }
     }
 }
@@ -80,7 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endif; ?>
 
         <section class="welcome">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
+
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" required>
 
@@ -91,9 +131,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <br><br>
 
-                <label for="imagem">Caminho da imagem</label>
-                <input type="text" id="imagem" name="imagem"
-                    placeholder="img_home/playstation5.png" required>
+                <label for="imagem">Escolher imagem</label>
+                <input
+                    type="file"
+                    id="imagem"
+                    name="imagem"
+                    accept=".jpg,.jpeg,.png,.webp"
+                    required
+                >
+                <small>Formatos: JPG, PNG ou WEBP. Máximo: 5 MB.</small>
 
                 <br><br>
 

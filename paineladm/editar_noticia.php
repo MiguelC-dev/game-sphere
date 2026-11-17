@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 require_once "conexao.php";
@@ -10,7 +11,6 @@ if (!isset($_SESSION["admin_id"])) {
 
 $erro = "";
 
-// Verifica o ID recebido pela URL
 $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 
 if (!$id) {
@@ -18,7 +18,6 @@ if (!$id) {
     exit;
 }
 
-// Busca a notícia no banco
 $sql = "SELECT * FROM noticias WHERE id = ?";
 $consulta = $conexao->prepare($sql);
 $consulta->execute([$id]);
@@ -29,11 +28,9 @@ if (!$noticia) {
     exit;
 }
 
-// Atualiza os dados quando o formulário é enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $titulo = trim($_POST["titulo"] ?? "");
     $data = $_POST["data_publicacao"] ?? "";
-    $imagem = trim($_POST["imagem"] ?? "");
     $resumo = trim($_POST["resumo"] ?? "");
     $conteudo = trim($_POST["conteudo"] ?? "");
     $secao = $_POST["secao"] ?? "";
@@ -47,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (
         $titulo === "" ||
         $data === "" ||
-        $imagem === "" ||
         $resumo === "" ||
         $conteudo === "" ||
         !in_array($secao, ["inicio", "noticias"], true) ||
@@ -55,36 +51,95 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ) {
         $erro = "Preencha todos os campos corretamente.";
     } else {
-        try {
-            $sql = "UPDATE noticias SET
-                titulo = ?,
-                data_publicacao = ?,
-                imagem = ?,
-                resumo = ?,
-                conteudo = ?,
-                secao = ?,
-                destaque = ?,
-                status = ?
-                WHERE id = ?";
+        $novaImagem = $noticia["imagem"];
+        $destino = null;
 
-            $consulta = $conexao->prepare($sql);
-            $consulta->execute([
-                $titulo,
-                $data,
-                $imagem,
-                $resumo,
-                $conteudo,
-                $secao,
-                $destaque,
-                $status,
-                $id
-            ]);
+        if (
+            isset($_FILES["imagem"]) &&
+            $_FILES["imagem"]["error"] !== UPLOAD_ERR_NO_FILE
+        ) {
+            if ($_FILES["imagem"]["error"] !== UPLOAD_ERR_OK) {
+                $erro = "Não foi possível enviar a imagem.";
+            } elseif ($_FILES["imagem"]["size"] > 5 * 1024 * 1024) {
+                $erro = "A imagem deve ter no máximo 5 MB.";
+            } else {
+                $tiposPermitidos = [
+                    "image/jpeg" => "jpg",
+                    "image/png" => "png",
+                    "image/webp" => "webp"
+                ];
 
-            header("Location: noticias.php");
-            exit;
+                $temporario = $_FILES["imagem"]["tmp_name"];
+                $mime = mime_content_type($temporario);
 
-        } catch (PDOException $e) {
-            $erro = "Não foi possível atualizar a notícia.";
+                if (!isset($tiposPermitidos[$mime])) {
+                    $erro = "Formato inválido. Use JPG, PNG ou WEBP.";
+                } else {
+                    $extensao = $tiposPermitidos[$mime];
+                    $nomeArquivo = bin2hex(random_bytes(16)) . "." . $extensao;
+
+                    $pastaUploads = dirname(__DIR__) . "/uploads/noticias/";
+                    $novaImagem = "uploads/noticias/" . $nomeArquivo;
+                    $destino = $pastaUploads . $nomeArquivo;
+
+                    if (!is_dir($pastaUploads)) {
+                        $erro = "A pasta de imagens não foi encontrada.";
+                    } elseif (!move_uploaded_file($temporario, $destino)) {
+                        $erro = "Não foi possível salvar a imagem no servidor.";
+                    }
+                }
+            }
+        }
+
+        if ($erro === "") {
+            try {
+                $sql = "UPDATE noticias SET
+                    titulo = ?,
+                    data_publicacao = ?,
+                    imagem = ?,
+                    resumo = ?,
+                    conteudo = ?,
+                    secao = ?,
+                    destaque = ?,
+                    status = ?
+                    WHERE id = ?";
+
+                $consulta = $conexao->prepare($sql);
+                $consulta->execute([
+                    $titulo,
+                    $data,
+                    $novaImagem,
+                    $resumo,
+                    $conteudo,
+                    $secao,
+                    $destaque,
+                    $status,
+                    $id
+                ]);
+
+                // Apaga a imagem anterior somente se ela estiver
+                // na pasta de uploads administrada pelo sistema.
+                if (
+                    $destino !== null &&
+                    strpos($noticia["imagem"], "uploads/noticias/") === 0
+                ) {
+                    $arquivoAntigo = dirname(__DIR__) . "/" . $noticia["imagem"];
+
+                    if (is_file($arquivoAntigo)) {
+                        unlink($arquivoAntigo);
+                    }
+                }
+
+                header("Location: noticias.php");
+                exit;
+
+            } catch (PDOException $e) {
+                if ($destino !== null && is_file($destino)) {
+                    unlink($destino);
+                }
+
+                $erro = "Não foi possível atualizar a notícia.";
+            }
         }
     }
 }
@@ -113,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <section class="welcome">
 
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
 
                 <label for="titulo">Título</label>
                 <input
@@ -135,31 +190,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 >
                 <br><br>
 
-                <label for="imagem">Caminho da imagem</label>
-                <input
-                    type="text"
-                    id="imagem"
-                    name="imagem"
-                    value="<?php echo htmlspecialchars($noticia["imagem"]); ?>"
-                    required
+                <label>Imagem atual</label>
+                <br>
+                <img
+                    src="../<?php echo htmlspecialchars($noticia["imagem"]); ?>"
+                    alt="Imagem atual da notícia"
+                    style="max-width: 200px; height: auto;"
                 >
                 <br><br>
 
+                <label for="imagem">Escolher nova imagem (opcional)</label>
+                <input
+                    type="file"
+                    id="imagem"
+                    name="imagem"
+                    accept=".jpg,.jpeg,.png,.webp"
+                >
+                <small>JPG, PNG ou WEBP. Máximo: 5 MB. Deixe vazio para manter a imagem atual.</small>
+                <br><br>
+
                 <label for="resumo">Resumo da notícia</label>
-                <textarea
-                    id="resumo"
-                    name="resumo"
-                    required
-                ><?php echo htmlspecialchars($noticia["resumo"]); ?></textarea>
+                <textarea id="resumo" name="resumo" required><?php echo htmlspecialchars($noticia["resumo"]); ?></textarea>
                 <br><br>
 
                 <label for="conteudo">Conteúdo completo</label>
-                <textarea
-                    id="conteudo"
-                    name="conteudo"
-                    rows="10"
-                    required
-                ><?php echo htmlspecialchars($noticia["conteudo"]); ?></textarea>
+                <textarea id="conteudo" name="conteudo" rows="10" required><?php echo htmlspecialchars($noticia["conteudo"]); ?></textarea>
                 <br><br>
 
                 <label for="secao">Onde publicar?</label>
