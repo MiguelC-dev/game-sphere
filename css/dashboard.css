@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +8,8 @@
 body {
     font-family: Arial, sans-serif;
     background: #0b0d12;
-    color: white;
+    color: #f5f5f5;
 }
-
 
 /* BARRA LATERAL */
 
@@ -17,27 +17,19 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-
     width: 250px;
     height: 100vh;
-
     background: #11141c;
     border-right: 1px solid #292d38;
-
     padding: 30px 20px;
-
     display: flex;
     flex-direction: column;
 }
-
-
-/* LOGO */
 
 .logo {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-
     margin-bottom: 8px;
 }
 
@@ -50,10 +42,8 @@ body {
     font-size: 11px;
     color: #777;
     letter-spacing: 1px;
-
     margin-bottom: 40px;
 }
-
 
 /* MENU */
 
@@ -67,12 +57,10 @@ nav a,
 .back-site {
     text-decoration: none;
     color: #bfc3cc;
-
     padding: 14px 15px;
-
-    border-radius: 6px;
-
+    border-radius: 7px;
     transition: 0.2s;
+    font-size: 14px;
 }
 
 nav a:hover,
@@ -81,17 +69,22 @@ nav .active {
     color: white;
 }
 
-
-/* VOLTAR */
-
 .back-site {
     margin-top: auto;
     border-top: 1px solid #292d38;
     border-radius: 0;
-
     padding-top: 20px;
 }
 
+.back-site + .back-site {
+    margin-top: 0;
+    border-top: none;
+    padding-top: 12px;
+}
+
+.back-site:hover {
+    color: #fff;
+}
 
 /* CONTEÚDO */
 
@@ -100,37 +93,43 @@ nav .active {
     padding: 45px;
 }
 
-header h1 {
-    font-size: 32px;
-    margin-bottom: 8px;
+.content header {
+    margin-bottom: 10px;
 }
 
-header p {
-    color: #888;
+.content header h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
+.content header p {
+    color: #929baa;
+    font-size: 14px;
+}
 
-/* CARDS */
+/* CARTÕES DO DASHBOARD */
 
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-
     margin-top: 40px;
 }
 
 .card {
-    background: #11141c;
-
-    border: 1px solid #292d38;
-    border-radius: 8px;
-
+    background: #151922;
+    border: 1px solid #292f3b;
+    border-radius: 12px;
     padding: 25px;
-
     display: flex;
     align-items: center;
     gap: 18px;
+    transition: 0.2s;
+}
+
+.cards .card:hover {
+    border-color: #e50914;
+    transform: translateY(-3px);
 }
 
 .card-icon {
@@ -143,28 +142,128 @@ header p {
 }
 
 .card p {
-    color: #888;
+    color: #929baa;
     font-size: 14px;
 }
-
 
 /* ÁREA DE BOAS-VINDAS */
 
 .welcome {
     margin-top: 30px;
-
-    background: #11141c;
-    border: 1px solid #292d38;
-
-    border-radius: 8px;
-
+    background: #151922;
+    border: 1px solid #292f3b;
+    border-radius: 12px;
     padding: 30px;
 }
 
 .welcome h2 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-size: 21px;
 }
 
 .welcome p {
-    color: #888;
+    color: #929baa;
+    line-height: 1.6;
+}
+
+/* BOTÃO CADASTRAR */
+
+.botao {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    padding: 13px 20px;
+    margin-top: 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.botao:hover {
+    background: #bd0710;
+    transform: translateY(-2px);
+}
+
+/* LISTA DE NOTÍCIAS */
+
+.welcome .card {
+    display: block;
+    margin-top: 18px;
+    padding: 22px;
+}
+
+.welcome .card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.welcome .card p {
+    margin-bottom: 10px;
+    color: #929baa;
+    font-size: 14px;
+}
+
+.welcome .card a {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 9px 16px;
+    background: #252c39;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.welcome .card a:hover {
+    background: #343d4d;
+}
+
+.welcome .card form {
+    display: inline-block;
+}
+
+.welcome .card button {
+    margin-top: 10px;
+    padding: 9px 16px;
+    background: #a80710;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.welcome .card button:hover {
+    background: #e50914;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 190px;
+        padding: 25px 12px;
+    }
+
+    .content {
+        margin-left: 190px;
+        padding: 25px 15px;
+    }
+
+    .content header h1 {
+        font-size: 23px;
+    }
+
+    .welcome {
+        padding: 20px;
+    }
 }

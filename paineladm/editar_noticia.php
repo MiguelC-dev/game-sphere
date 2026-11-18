@@ -151,111 +151,152 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Notícia - GS News</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="stylesheet" href="../css/cadastro.css">
 </head>
-<body>
 
-    <main class="content">
+<body class="cadastro-page">
 
-        <header>
+    <main class="cadastro-container">
+
+        <header class="cadastro-header">
             <h1>Editar Notícia</h1>
             <p>Altere os dados da notícia cadastrada.</p>
         </header>
 
         <?php if ($erro !== ""): ?>
-            <p><?php echo htmlspecialchars($erro); ?></p>
+            <p class="cadastro-erro">
+                <?php echo htmlspecialchars($erro); ?>
+            </p>
         <?php endif; ?>
 
-        <section class="welcome">
+        <section class="cadastro-card">
 
             <form method="POST" enctype="multipart/form-data">
 
-                <label for="titulo">Título</label>
-                <input
-                    type="text"
-                    id="titulo"
-                    name="titulo"
-                    value="<?php echo htmlspecialchars($noticia["titulo"]); ?>"
-                    required
-                >
-                <br><br>
+                <div class="campo">
+                    <label for="titulo">Título</label>
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        value="<?php echo htmlspecialchars($noticia["titulo"]); ?>"
+                        required
+                    >
+                </div>
 
-                <label for="data_publicacao">Data de publicação</label>
-                <input
-                    type="date"
-                    id="data_publicacao"
-                    name="data_publicacao"
-                    value="<?php echo htmlspecialchars($noticia["data_publicacao"]); ?>"
-                    required
-                >
-                <br><br>
+                <div class="campo">
+                    <label for="data_publicacao">Data de publicação</label>
+                    <input
+                        type="date"
+                        id="data_publicacao"
+                        name="data_publicacao"
+                        value="<?php echo htmlspecialchars($noticia["data_publicacao"]); ?>"
+                        required
+                    >
+                </div>
 
-                <label>Imagem atual</label>
-                <br>
-                <img
-                    src="../<?php echo htmlspecialchars($noticia["imagem"]); ?>"
-                    alt="Imagem atual da notícia"
-                    style="max-width: 200px; height: auto;"
-                >
-                <br><br>
+                <div class="campo">
+                    <label>Imagem atual</label>
 
-                <label for="imagem">Escolher nova imagem (opcional)</label>
-                <input
-                    type="file"
-                    id="imagem"
-                    name="imagem"
-                    accept=".jpg,.jpeg,.png,.webp"
-                >
-                <small>JPG, PNG ou WEBP. Máximo: 5 MB. Deixe vazio para manter a imagem atual.</small>
-                <br><br>
+                    <img
+                        src="../<?php echo htmlspecialchars($noticia["imagem"]); ?>"
+                        alt="Imagem atual da notícia"
+                        style="max-width: 200px; height: auto; border-radius: 8px;"
+                    >
+                </div>
 
-                <label for="resumo">Resumo da notícia</label>
-                <textarea id="resumo" name="resumo" required><?php echo htmlspecialchars($noticia["resumo"]); ?></textarea>
-                <br><br>
+                <div class="campo">
+                    <label for="imagem">Escolher nova imagem (opcional)</label>
 
-                <label for="conteudo">Conteúdo completo</label>
-                <textarea id="conteudo" name="conteudo" rows="10" required><?php echo htmlspecialchars($noticia["conteudo"]); ?></textarea>
-                <br><br>
+                    <input
+                        type="file"
+                        id="imagem"
+                        name="imagem"
+                        accept=".jpg,.jpeg,.png,.webp"
+                    >
 
-                <label for="secao">Onde publicar?</label>
-                <select id="secao" name="secao" required>
-                    <option value="inicio" <?php echo $noticia["secao"] === "inicio" ? "selected" : ""; ?>>
-                        Página inicial
-                    </option>
-                    <option value="noticias" <?php echo $noticia["secao"] === "noticias" ? "selected" : ""; ?>>
-                        Aba Notícias
-                    </option>
-                </select>
-                <br><br>
+                    <small>
+                        JPG, PNG ou WEBP. Máximo: 5 MB.
+                        Deixe vazio para manter a imagem atual.
+                    </small>
+                </div>
 
-                <label>
+                <div class="campo">
+                    <label for="resumo">Resumo da notícia</label>
+
+                    <textarea
+                        id="resumo"
+                        name="resumo"
+                        rows="3"
+                        required
+                    ><?php echo htmlspecialchars($noticia["resumo"]); ?></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="conteudo">Conteúdo completo</label>
+
+                    <textarea
+                        id="conteudo"
+                        name="conteudo"
+                        rows="10"
+                        required
+                    ><?php echo htmlspecialchars($noticia["conteudo"]); ?></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="secao">Onde publicar?</label>
+
+                    <select id="secao" name="secao" required>
+                        <option value="inicio" <?php echo $noticia["secao"] === "inicio" ? "selected" : ""; ?>>
+                            Página inicial
+                        </option>
+
+                        <option value="noticias" <?php echo $noticia["secao"] === "noticias" ? "selected" : ""; ?>>
+                            Aba Notícias
+                        </option>
+                    </select>
+                </div>
+
+                <div class="campo-checkbox">
                     <input
                         type="checkbox"
+                        id="destaque"
                         name="destaque"
                         value="1"
                         <?php echo $noticia["destaque"] ? "checked" : ""; ?>
                     >
-                    Notícia principal da página inicial
-                </label>
-                <br><br>
 
-                <label for="status">Status</label>
-                <select id="status" name="status" required>
-                    <option value="publicada" <?php echo $noticia["status"] === "publicada" ? "selected" : ""; ?>>
-                        Publicada
-                    </option>
-                    <option value="rascunho" <?php echo $noticia["status"] === "rascunho" ? "selected" : ""; ?>>
-                        Rascunho
-                    </option>
-                </select>
-                <br><br>
+                    <label for="destaque">
+                        Notícia principal da página inicial
+                    </label>
+                </div>
 
-                <button type="submit">Salvar alterações</button>
+                <div class="campo">
+                    <label for="status">Status</label>
+
+                    <select id="status" name="status" required>
+                        <option value="publicada" <?php echo $noticia["status"] === "publicada" ? "selected" : ""; ?>>
+                            Publicada
+                        </option>
+
+                        <option value="rascunho" <?php echo $noticia["status"] === "rascunho" ? "selected" : ""; ?>>
+                            Rascunho
+                        </option>
+                    </select>
+                </div>
+
+                <div class="cadastro-acoes">
+                    <button type="submit" class="botao-cadastrar">
+                        Salvar alterações
+                    </button>
+
+                    <a href="noticias.php" class="botao-voltar">
+                        Voltar para notícias
+                    </a>
+                </div>
 
             </form>
-
-            <br>
-            <a href="noticias.php">Voltar para notícias</a>
 
         </section>
 
