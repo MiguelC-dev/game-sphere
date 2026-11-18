@@ -275,3 +275,37 @@ nav .active {
         padding: 20px;
     }
 }
+
+
+/* BOTÕES DA LISTA DE NOTÍCIAS */
+
+.botao-editar {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 9px 16px;
+    background: #e50914 !important;
+    color: white !important;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.botao-editar:hover {
+    background: #bd0710 !important;
+}
+
+.botao-excluir {
+    margin-top: 10px;
+    padding: 9px 16px;
+    background: #8f080e !important;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.botao-excluir:hover {
+    background: #c00b15 !important;
+}
