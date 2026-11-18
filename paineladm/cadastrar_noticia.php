@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 require_once "conexao.php";
@@ -104,85 +105,129 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cadastrar Notícia - GS News</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="stylesheet" href="../css/cadastro.css">
 </head>
-<body>
-    <main class="content">
-        <header>
+
+<body class="cadastro-page">
+
+    <main class="cadastro-container">
+
+        <header class="cadastro-header">
             <h1>Cadastrar Notícia</h1>
             <p>Preencha os dados da nova notícia.</p>
         </header>
 
         <?php if ($erro !== ""): ?>
-            <p><?php echo htmlspecialchars($erro); ?></p>
+            <div class="cadastro-erro">
+                <?php echo htmlspecialchars($erro); ?>
+            </div>
         <?php endif; ?>
 
-        <section class="welcome">
+        <section class="cadastro-card">
+
             <form method="POST" enctype="multipart/form-data">
 
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" name="titulo" required>
+                <div class="campo">
+                    <label for="titulo">Título da notícia</label>
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        placeholder="Digite o título da notícia"
+                        required
+                    >
+                </div>
 
-                <br><br>
+                <div class="campo">
+                    <label for="data_publicacao">Data de publicação</label>
+                    <input
+                        type="date"
+                        id="data_publicacao"
+                        name="data_publicacao"
+                        required
+                    >
+                </div>
 
-                <label for="data_publicacao">Data de publicação</label>
-                <input type="date" id="data_publicacao" name="data_publicacao" required>
+                <div class="campo">
+                    <label for="imagem">Imagem da notícia</label>
+                    <input
+                        type="file"
+                        id="imagem"
+                        name="imagem"
+                        accept=".jpg,.jpeg,.png,.webp"
+                        required
+                    >
+                    <small>Formatos aceitos: JPG, PNG ou WEBP. Máximo: 5 MB.</small>
+                </div>
 
-                <br><br>
+                <div class="campo">
+                    <label for="resumo">Resumo da notícia</label>
+                    <textarea
+                        id="resumo"
+                        name="resumo"
+                        rows="3"
+                        placeholder="Escreva um breve resumo..."
+                        required
+                    ></textarea>
+                </div>
 
-                <label for="imagem">Escolher imagem</label>
-                <input
-                    type="file"
-                    id="imagem"
-                    name="imagem"
-                    accept=".jpg,.jpeg,.png,.webp"
-                    required
-                >
-                <small>Formatos: JPG, PNG ou WEBP. Máximo: 5 MB.</small>
+                <div class="campo">
+                    <label for="conteudo">Conteúdo completo</label>
+                    <textarea
+                        id="conteudo"
+                        name="conteudo"
+                        rows="10"
+                        placeholder="Escreva o conteúdo completo da notícia..."
+                        required
+                    ></textarea>
+                </div>
 
-                <br><br>
+                <div class="campo">
+                    <label for="secao">Onde publicar?</label>
+                    <select id="secao" name="secao" required>
+                        <option value="inicio">Página inicial</option>
+                        <option value="noticias">Aba Notícias</option>
+                    </select>
+                </div>
 
-                <label for="resumo">Resumo da notícia</label>
-                <textarea id="resumo" name="resumo" required></textarea>
+                <div class="campo">
+                    <label for="status">Status da notícia</label>
+                    <select id="status" name="status" required>
+                        <option value="publicada">Publicada</option>
+                        <option value="rascunho">Rascunho</option>
+                    </select>
+                </div>
 
-                <br><br>
+                <div class="campo-checkbox">
+                    <input
+                        type="checkbox"
+                        id="destaque"
+                        name="destaque"
+                        value="1"
+                    >
+                    <label for="destaque">
+                        Notícia principal da página inicial
+                    </label>
+                </div>
 
-                <label for="conteudo">Conteúdo completo</label>
-                <textarea id="conteudo" name="conteudo" rows="10" required></textarea>
+                <div class="cadastro-acoes">
+                    <button type="submit" class="botao-cadastrar">
+                        Cadastrar notícia
+                    </button>
 
-                <br><br>
+                    <a href="noticias.php" class="botao-voltar">
+                        Voltar para notícias
+                    </a>
+                </div>
 
-                <label for="secao">Onde publicar?</label>
-                <select id="secao" name="secao" required>
-                    <option value="inicio">Página inicial</option>
-                    <option value="noticias">Aba Notícias</option>
-                </select>
-
-                <br><br>
-
-                <label>
-                    <input type="checkbox" name="destaque" value="1">
-                    Notícia principal da página inicial
-                </label>
-
-                <br><br>
-
-                <label for="status">Status</label>
-                <select id="status" name="status" required>
-                    <option value="publicada">Publicada</option>
-                    <option value="rascunho">Rascunho</option>
-                </select>
-
-                <br><br>
-
-                <button type="submit">Cadastrar notícia</button>
             </form>
 
-            <br>
-
-            <a href="noticias.php">Voltar para notícias</a>
         </section>
+
     </main>
+
 </body>
 </html>
