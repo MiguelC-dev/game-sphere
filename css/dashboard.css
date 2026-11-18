@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -68,6 +69,8 @@ nav .active {
     background: #e50914;
     color: white;
 }
+
+/* VOLTAR */
 
 .back-site {
     margin-top: auto;
@@ -183,7 +186,6 @@ nav .active {
 
 .botao:hover {
     background: #bd0710;
-    transform: translateY(-2px);
 }
 
 /* LISTA DE NOTÍCIAS */
@@ -205,21 +207,26 @@ nav .active {
     font-size: 14px;
 }
 
+/* BOTÃO EDITAR */
+
 .welcome .card a {
     display: inline-block;
     margin-top: 10px;
     margin-right: 10px;
     padding: 9px 16px;
-    background: #252c39;
+    background: #e50914;
     color: white;
     border-radius: 6px;
     text-decoration: none;
     font-size: 13px;
+    transition: 0.2s;
 }
 
 .welcome .card a:hover {
-    background: #343d4d;
+    background: #bd0710;
 }
+
+/* BOTÃO EXCLUIR */
 
 .welcome .card form {
     display: inline-block;
@@ -228,16 +235,17 @@ nav .active {
 .welcome .card button {
     margin-top: 10px;
     padding: 9px 16px;
-    background: #a80710;
+    background: #8f080e;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 13px;
+    transition: 0.2s;
 }
 
 .welcome .card button:hover {
-    background: #e50914;
+    background: #c00b15;
 }
 
 /* RESPONSIVIDADE */
