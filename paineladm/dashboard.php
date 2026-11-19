@@ -6,7 +6,21 @@ if (!isset($_SESSION["admin_id"])) {
     header("Location: admGS.php");
     exit;
 }
+
+require_once __DIR__ . "/conexao.php";
+
+// Total de notícias publicadas
+$totalNoticias = $conexao->query(
+    "SELECT COUNT(*) FROM noticias WHERE status = 'publicada'"
+)->fetchColumn();
+
+// Total de mensagens recebidas
+$totalMensagens = $conexao->query(
+    "SELECT COUNT(*) FROM mensagens_contato"
+)->fetchColumn();
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -49,7 +63,7 @@ if (!isset($_SESSION["admin_id"])) {
             <div class="card">
                 <div class="card-icon">📰</div>
                 <div>
-                    <h2>24</h2>
+                    <h2><?php echo $totalNoticias; ?></h2>
                     <p>Notícias publicadas</p>
                 </div>
             </div>
@@ -57,7 +71,7 @@ if (!isset($_SESSION["admin_id"])) {
             <div class="card">
                 <div class="card-icon">💬</div>
                 <div>
-                    <h2>8</h2>
+                    <h2><?php echo $totalMensagens; ?></h2>
                     <p>Mensagens recebidas</p>
                 </div>
             </div>
@@ -65,7 +79,7 @@ if (!isset($_SESSION["admin_id"])) {
             <div class="card">
                 <div class="card-icon">⭐</div>
                 <div>
-                    <h2>12</h2>
+                    <h2>8</h2>
                     <p>Reviews cadastradas</p>
                 </div>
             </div>
