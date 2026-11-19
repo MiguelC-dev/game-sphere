@@ -40,7 +40,7 @@ $noticias = $consulta->fetchAll(PDO::FETCH_ASSOC);
         <a href="../index.php" class="nav-btn">Inicio</a>
         <a href="noticias.php" class="nav-btn">Notícias</a>
         <a href="../reviews/reviews.html" class="nav-btn">Reviews</a>
-        <a href="../contato/contato.html" class="nav-btn">Contato</a>
+        <a href="../contato/contato.php" class="nav-btn">Contato</a>
     </nav>
 </header>
 

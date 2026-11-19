@@ -1,0 +1,154 @@
+
+/* ==============================
+   VISUALIZAÇÃO DA MENSAGEM
+============================== */
+
+.visualizar-area {
+    margin-top: 35px;
+    padding: 35px;
+    background: #151922;
+    border: 1px solid #292f3b;
+    border-radius: 12px;
+}
+
+/* CABEÇALHO DA MENSAGEM */
+
+.detalhe-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #292f3b;
+}
+
+.detalhe-legenda {
+    display: block;
+    color: #929baa;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.detalhe-cabecalho h2 {
+    color: #ffffff;
+    font-size: 23px;
+    overflow-wrap: anywhere;
+}
+
+.detalhe-data {
+    color: #929baa;
+    font-size: 12px;
+    white-space: nowrap;
+    padding-top: 5px;
+}
+
+/* INFORMAÇÕES DO REMETENTE */
+
+.detalhe-informacoes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 25px 0;
+    border-bottom: 1px solid #292f3b;
+}
+
+.detalhe-campo {
+    background: #0e121a;
+    border: 1px solid #292f3b;
+    border-radius: 8px;
+    padding: 18px;
+    min-width: 0;
+}
+
+.detalhe-campo span {
+    display: block;
+    color: #929baa;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+.detalhe-campo p {
+    color: #f5f5f5;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* CONTEÚDO DA MENSAGEM */
+
+.detalhe-mensagem {
+    padding: 28px 0 10px;
+}
+
+.detalhe-mensagem h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.detalhe-mensagem p {
+    color: #c4c9d2;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+/* ALERTA */
+
+.mensagem-alerta {
+    background: rgba(229, 9, 20, 0.10);
+    border: 1px solid #8f080e;
+    color: #ff858a;
+    padding: 18px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+/* BOTÃO VOLTAR */
+
+.detalhe-acoes {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid #292f3b;
+}
+
+.botao-voltar-mensagens {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #252c39;
+    border: 1px solid #343b49;
+    color: #ffffff;
+    padding: 12px 19px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.botao-voltar-mensagens:hover {
+    background: #343d4d;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+    .visualizar-area {
+        padding: 22px 18px;
+    }
+
+    .detalhe-cabecalho {
+        flex-direction: column;
+    }
+
+    .detalhe-cabecalho h2 {
+        font-size: 20px;
+    }
+
+    .detalhe-informacoes {
+        grid-template-columns: 1fr;
+    }
+}

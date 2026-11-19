@@ -34,7 +34,7 @@ $noticias = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
         <nav>
             <a href="noticias.php" class="active">📰 Notícias</a>
-            <a href="#">💬 Contato</a>
+            <a href="mensagens.php">💬 Contato</a>
             <a href="#">⭐ Reviews</a>
         </nav>
 

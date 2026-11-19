@@ -26,7 +26,7 @@ if (!isset($_SESSION["admin_id"])) {
 
         <nav>
             <a href="noticias.php">📰 Notícias</a>
-            <a href="#">💬 Contato</a>
+            <a href="mensagens.php">💬 Contato</a>
             <a href="#">⭐ Reviews</a>
         </nav>
 

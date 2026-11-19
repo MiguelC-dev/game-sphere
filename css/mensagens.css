@@ -1,0 +1,140 @@
+
+/* ==============================
+   LISTAGEM DE MENSAGENS
+============================== */
+
+.mensagens-area {
+    margin-top: 35px;
+    padding: 30px;
+    background: #151922;
+    border: 1px solid #292f3b;
+    border-radius: 12px;
+}
+
+.mensagens-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mensagens-topo h2 {
+    font-size: 21px;
+}
+
+.contador-mensagens {
+    background: #252c39;
+    color: #bfc3cc;
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* CARTÕES */
+
+.mensagens-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mensagem-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px;
+    background: #0e121a;
+    border: 1px solid #292f3b;
+    border-radius: 9px;
+    transition: 0.2s;
+}
+
+.mensagem-card:hover {
+    border-color: #e50914;
+    transform: translateY(-2px);
+}
+
+.mensagem-informacoes {
+    min-width: 0;
+}
+
+.mensagem-informacoes h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 9px;
+    overflow-wrap: anywhere;
+}
+
+.mensagem-informacoes p {
+    color: #929baa;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* BOTÃO LER MAIS */
+
+.botao-ler {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #e50914;
+    color: #ffffff;
+    padding: 10px 17px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.botao-ler:hover {
+    background: #bd0710;
+}
+
+/* ESTADO VAZIO */
+
+.mensagens-vazio {
+    background: #0e121a;
+    border: 1px dashed #343b49;
+    border-radius: 9px;
+    padding: 35px 20px;
+    text-align: center;
+    color: #929baa;
+}
+
+.mensagens-vazio h3 {
+    color: #f5f5f5;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.mensagens-vazio p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+    .mensagens-area {
+        padding: 20px 15px;
+    }
+
+    .mensagem-card {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .botao-ler {
+        width: 100%;
+    }
+
+    .mensagens-topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
